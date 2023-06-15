@@ -8,9 +8,9 @@
 
     <logger name="jdbc" level="off"/>
 
-    <logger name="jdbc.sqlonly" level="off" /> <!-- SQL만 로그로 출력-->
+    <logger name="jdbc.sqlonly" level="trace" /> <!-- SQL만 로그로 출력-->
     <logger name="jdbc.sqltiming" level="debug" /> <!-- SQL + 소요시간 출력-->
-    <logger name="jdbc.audit" level="off" />  <!-- jdbc 트러블 슈팅 경우 사용-->
+    <logger name="jdbc.audit" level="trace" />  <!-- jdbc 트러블 슈팅 경우 사용-->
     <logger name="jdbc.resultset" level="off" /> <!-- ResultSet을 포함한 모든 JDBC 호출 정보를 출력-->
     <logger name="jdbc.resultsettable" level="debug" /> <!-- SQL 결과를 테이블 형식으로 출력-->
     <logger name="jdbc.connection" level="off" /> <!-- 커넥션 연결/종료 정보 출력-->

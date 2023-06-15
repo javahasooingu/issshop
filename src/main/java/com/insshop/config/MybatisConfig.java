@@ -1,5 +1,8 @@
 package com.insshop.config;
 
+import com.insshop.dto.inquiry.Status;
+import com.insshop.dto.inquiry.Type;
+import com.insshop.dto.inquiry.TypeDetail;
 import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -31,6 +34,12 @@ public class MybatisConfig {
         );
 
         sessionFactory.setTypeAliasesPackage("com.insshop.**.dto");
+        sessionFactory.setTypeHandlers(
+                new Type.TypeHandler(),
+                new TypeDetail.TypeHandler(),
+                new Status.TypeHandler()
+        );
+
         return sessionFactory.getObject();
     }
 
