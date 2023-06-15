@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.insshop.mapper.InquiryMapper">
+
+    <select id="findByType" resultType="Inquiry">
+        SELECT
+            *
+        FROM
+            inquiry
+        WHERE
+            type = #{type}
+            AND
+            NOT status = 'DELETED'
+        ORDER BY
+            created_date DESC
+    </select>
+
+    <select id="findById" resultType="Inquiry">
+        SELECT
+            *
+        FROM
+            inquiry
+        WHERE
+            id = #{id}
+    </select>
+
+    <insert id="save" parameterType="InquirySaveRequest">
+        INSERT INTO
+            inquiry(user_id, type, type_detail, title, contents, secret, pw, status)
+        VALUES
+            (#{userId}, #{type}, #{typeDetail}, #{title}, #{contents}, #{secret}, #{pw}, #{status})
+    </insert>
+
+    <update id="updateStatus">
+        UPDATE
+            inquiry
+        SET
+            status = #{status}
+        WHERE
+            id = #{id}
+    </update>
+
+    <update id="updateResponse">
+        UPDATE
+            inquiry
+        SET
+            response = #{response}
+        WHERE
+            id = #{id}
+    </update>
+
+</mapper>

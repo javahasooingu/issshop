@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>shop-cs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+    <h1>문의 작성하기</h1>
+
+    <form th:action="@{'/cs/inquiry/register'}" th:object="${inquiry}" method="post">
+            <p>여기에 정보를 입력하세요</p>
+            <div>
+                <label th:for="title">제목 : </label>
+                <input type="text" th:field="*{title}" placeholder="제목을 입력하세요"/>
+            </div> <br/>
+
+        <div>
+            <label th:for="title">유저 번호 : </label>
+            <input type="text" th:field="*{userId}" placeholder="1을 입력하세요"/>
+        </div> <br/>
+
+            <!-- radio button -->
+            <div>&lt;어떤 문의인가요?&gt;</div>
+            <div>
+                <label th:for="type">상품-사이즈</label>
+                <input type="radio" th:field="*{type}" value="RPODUCT_SIZE"/>
+                <br>
+                <label th:for="type">상품-재입고</label>
+                <input type="radio" th:field="*{type}" value="PRODUCT_RESTOCK"/>
+            </div> <br/>
+
+        <div>
+            <label th:for="title">내용 : </label>
+            <input type="text" th:field="*{contents}" placeholder="내용을 입력하세요"/>
+        </div> <br/>
+
+                    <!-- single checkbox -->
+                    <div>
+                        <div>&lt;비밀글 여부&gt;</div>
+                        <div>
+                            <label th:for="secret">비밀?</label>
+                            <input type="checkbox" th:field="*{secret}" />
+                        </div>
+                    </div> <br/>
+
+        <div>
+            <label th:for="pw">제목 : </label>
+            <input type="text" th:field="*{pw}" placeholder="비밀번호를 입력하세요"/>
+        </div> <br/>
+
+
+            <div align="center">
+                <button type="button" th:onclick="|location.href='@{/cs}'|">취소</button>
+                <button type="submit" style="margin-left: 30px">추가</button>
+            </div>
+
+
+    </form>
+
+
+
+</body>
+</html>

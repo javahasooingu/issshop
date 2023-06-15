@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>shop-cs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+    <p>고객센터 > 상품 관련 문의</p>
+
+    <br>
+
+    <tr th:each="inquiry: ${inquirys}">
+        <br>
+        <td th:text="${inquiry.id}">100</td>
+        <td th:text="${inquiry.userId}">100</td>
+        <a th:href="@{'inquiry/'+ ${inquiry.id}}">
+            <td th:text="'[' + ${inquiry.type} + ']' + ${inquiry.title}">100</td>
+        </a>
+        <td th:text="${inquiry.createdDate}">100</td>
+    </tr>
+
+    <br><br><br>
+
+    <a href="product/register">글쓰기</a>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>shop-cs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+    <p>고객센터 > 결제 및 배송 문의</p>
+
+    <br>
+
+    <p th:text="'제목 > ' + ${inquiry.title}">고객센터 그 어딘가</p>
+    <p th:text="'유저 > ' + ${inquiry.userId}">고객센터 그 어딘가</p>
+    <p th:text="'생성일 > ' + ${inquiry.createdDate}">고객센터 그 어딘가</p>
+    <p th:text="'내용 > ' + ${inquiry.contents}">고객센터 그 어딘가</p>
+    <p th:text="'상태 > ' + ${inquiry.status}">고객센터 그 어딘가</p>
+    <p th:text="'답변 > ' + ${inquiry.response}">고객센터 그 어딘가</p>
+    <p th:text="'답변일 > ' + ${inquiry.responsedDate}">고객센터 그 어딘가</p>
+    <p th:text="'비밀글여부 > ' + ${inquiry.secret}">고객센터 그 어딘가</p>
+    <p th:text="'비밀번호 > ' + ${inquiry.pw}">고객센터 그 어딘가</p>
+
+    <br>
+    <a th:href="@{'inquiry/'+ ${inquiry.id} + '/response'}">답변달기</a>
+
+
+</body>
+</html>
